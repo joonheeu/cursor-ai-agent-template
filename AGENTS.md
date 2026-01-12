@@ -8,26 +8,47 @@
 ### Tech Stack
 > 프로젝트의 기술 스택을 명시하세요. Monorepo가 아닌 경우 해당 섹션 제거 가능.
 
-- **Package Manager**: [npm/pnpm/yarn]
+#### ⭐ Package Manager (필수)
+> **중요**: 프로젝트 전체에서 일관된 패키지 매니저를 사용해야 합니다.
+
+- **선택한 패키지 매니저**: [npm/pnpm/yarn/bun 중 하나 명시] ⭐
+- **Lock 파일**: [package-lock.json/pnpm-lock.yaml/yarn.lock/bun.lockb]
+
+**규칙**:
+- 모든 개발 명령어는 선택한 패키지 매니저를 사용
+- 다른 패키지 매니저의 lock 파일은 .gitignore에 추가
+- 문서의 모든 명령어 예시도 선택한 패키지 매니저로 작성
+
+#### Stack
 - **Framework**: [Next.js/React/Vue 등]
 - **Database**: [PostgreSQL/MySQL/MongoDB 등]
+- **ORM**: [Prisma/Drizzle/TypeORM 등]
 - **AI/ML**: [사용하는 AI 서비스]
 - **기타**: [기타 주요 기술]
 
 ### Operational Commands
 > 개발 시 자주 사용하는 명령어를 정의하세요.
+> ⚠️ **중요**: 모든 명령어는 위에서 선택한 패키지 매니저를 사용해야 합니다!
 
 **Development**
 ```bash
-npm run dev # 개발 서버 시작
-npm run build # 프로덕션 빌드
-npm test # 테스트 실행
+[패키지매니저] run dev # 개발 서버 시작
+[패키지매니저] run build # 프로덕션 빌드
+[패키지매니저] test # 테스트 실행
+```
+
+**예시** (pnpm 사용 시):
+```bash
+pnpm dev          # 개발 서버 시작
+pnpm build        # 프로덕션 빌드
+pnpm test         # 테스트 실행
+pnpm lint         # 린트 실행
 ```
 
 **Database** (해당하는 경우)
 ```bash
-npm run db:migrate # 마이그레이션 실행
-npm run db:studio # DB GUI 열기
+[패키지매니저] run db:migrate # 마이그레이션 실행
+[패키지매니저] run db:studio # DB GUI 열기
 ```
 
 ## Golden Rules (Immutable)
@@ -80,6 +101,51 @@ npm run db:studio # DB GUI 열기
 ### 문서
 - **[TODO](./TODO.md)** — 개발 작업 목록 및 진행상황
 - **[Documentation](./docs/README.md)** — 전체 문서 목차 및 가이드
+
+## 🚀 프로젝트 초기화 프로세스
+
+### AI Agent 작업 순서 (템플릿 사용 시)
+
+템플릿을 클론한 직후, AI Agent는 다음 순서로 프로젝트를 초기화해야 합니다:
+
+#### Step 1: 사용자와 초기 대화
+- **문서**: [GETTING_STARTED.md](./GETTING_STARTED.md) 참조
+- **목적**: 프로젝트 기본 정보, 기술 스택, 패키지 매니저 결정
+- **핵심 질문**:
+  1. 프로젝트명과 설명
+  2. **패키지 매니저 선택** (npm/pnpm/yarn/bun) ⭐
+  3. 프론트엔드 프레임워크
+  4. 데이터베이스 사용 여부
+  5. 프로젝트 초기화 방식
+
+#### Step 2: 문서 업데이트
+1. 이 파일(AGENTS.md) 업데이트
+   - [프로젝트명] 대체
+   - **패키지 매니저 명시** ⭐
+   - Tech Stack 작성
+   - Operational Commands 업데이트
+2. docs/ 폴더 문서 작성
+   - PLAN.md, ARCHITECTURE.md, TERMINOLOGY.md, MVP.md
+3. TODO.md 작성
+   - Phase별 작업 분해
+
+#### Step 3: 프로젝트 초기화 (선택 시)
+- **문서**: [PROJECT_INIT_GUIDE.md](./PROJECT_INIT_GUIDE.md) 참조
+- **방법**: 임시 폴더 전략 사용 (충돌 방지)
+- **주의**: create-next-app 등은 빈 폴더 요구 → 템플릿 파일과 충돌
+
+#### Step 4: 환경 설정
+- .env.example 업데이트
+- package.json 설정
+- .gitignore 확인
+
+#### Step 5: 첫 커밋
+```bash
+git add .
+git commit -m "docs: initialize project documentation"
+```
+
+---
 
 ## TODO.md 사용 가이드
 
