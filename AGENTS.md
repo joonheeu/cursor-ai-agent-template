@@ -104,7 +104,11 @@ pnpm lint         # 린트 실행
 
 ## 🚀 프로젝트 초기화 프로세스
 
-### AI Agent 작업 순서 (템플릿 사용 시)
+이 템플릿은 **2가지 방법**으로 사용할 수 있습니다:
+
+---
+
+### 방법 1: 새 프로젝트 시작
 
 템플릿을 클론한 직후, AI Agent는 다음 순서로 프로젝트를 초기화해야 합니다:
 
@@ -144,6 +148,69 @@ pnpm lint         # 린트 실행
 git add .
 git commit -m "docs: initialize project documentation"
 ```
+
+---
+
+### 방법 2: 기존 프로젝트에 적용 ⭐
+
+이미 개발 중인 프로젝트에 이 템플릿 구조를 적용할 수 있습니다!
+
+#### 사용자 요청 예시:
+```
+"이 템플릿을 적용해줘: https://github.com/YOUR_USERNAME/cursor-ai-agent-template"
+```
+
+#### AI Agent 작업 순서:
+
+##### Phase 1: 기존 프로젝트 분석
+1. **프로젝트 구조 파악**
+   - `package.json` 분석 (프로젝트명, 의존성, 스크립트)
+   - **패키지 매니저 자동 감지** (lock 파일 확인)
+   - 디렉토리 구조 분석
+   - 설정 파일 확인 (tsconfig.json, next.config.js 등)
+
+2. **기술 스택 파악**
+   - Framework: Next.js, React, Vue 등
+   - Database: Prisma, Drizzle 등
+   - 기타 주요 라이브러리
+
+3. **충돌 파일 확인**
+   - README.md, docs/, .cursor/ 존재 여부
+   - 백업 계획 수립
+
+##### Phase 2: 템플릿 파일 적용
+1. **백업 생성**
+   - 충돌 파일 백업 (README.md → README.old.md)
+
+2. **템플릿 파일 복사**
+   - AGENTS.md, TODO.md, docs/, .cursor/ 추가
+   - 기존 코드는 절대 수정하지 않음
+
+3. **자동 커스터마이징**
+   - 플레이스홀더 대체 ([프로젝트명], [패키지매니저] 등)
+   - 분석 결과 기반으로 AGENTS.md 작성
+   - 코드베이스 분석하여 docs/TERMINOLOGY.md 생성
+   - TODO.md 생성 (빈 템플릿 또는 코드 분석 기반)
+
+4. **파일 병합**
+   - .gitignore 병합 (중복 제거)
+   - package.json은 유지 (변경 없음)
+
+##### Phase 3: 검증 및 커밋
+1. 필수 파일 존재 확인
+2. 플레이스홀더 대체 완료 확인
+3. Git 커밋
+   ```bash
+   git commit -m "docs: apply AI Agent development template"
+   ```
+
+**상세 가이드**: [APPLY_TO_EXISTING_PROJECT.md](./APPLY_TO_EXISTING_PROJECT.md)
+
+**핵심 원칙**:
+- ✅ 기존 코드 100% 유지
+- ✅ 문서와 규칙만 추가
+- ✅ 기존 Git 히스토리 유지
+- ✅ 점진적 적용 가능
 
 ---
 
