@@ -13,7 +13,7 @@
 
 ## 🚀 빠른 시작
 
-### 1. 이 템플릿 사용하기
+### 1. 템플릿 가져오기
 
 GitHub에서 "Use this template" 버튼을 클릭하거나:
 
@@ -25,31 +25,45 @@ rm -rf .git
 git init
 ```
 
-### 2. 프로젝트 커스터마이징
+### 2. AI Agent와 초기 대화 🤖
 
-```bash
-# 1. AGENTS.md 수정
-# - 프로젝트명, 기술 스택, 용어 등을 프로젝트에 맞게 수정
+**중요**: 직접 수정하지 말고, AI Agent에게 다음과 같이 요청하세요:
 
-# 2. docs/ 폴더의 문서 작성
-# - PLAN.md: 서비스 기획 작성
-# - ARCHITECTURE.md: 기술 스택 정의
-# - DATABASE_SCHEMA.md: DB 설계 (필요시)
-# - 기타 필요한 명세서 작성
-
-# 3. TODO.md 작성
-# - Phase별 작업 목록 작성
-# - 참조 문서 연결
 ```
+"GETTING_STARTED.md를 참조하여 프로젝트를 초기화해줘"
+```
+
+AI Agent가 다음을 자동으로 수행합니다:
+
+1. **프로젝트 정보 수집**
+   - 프로젝트명, 설명, 타겟 사용자
+   - **패키지 매니저 선택** (npm/pnpm/yarn/bun) ⭐ 중요!
+   - 기술 스택 (프레임워크, DB, AI/ML 등)
+   - 초기화 방식 (create-next-app 사용 등)
+
+2. **문서 자동 생성**
+   - AGENTS.md 업데이트 (패키지 매니저 명시 포함)
+   - docs/ 폴더 문서 작성 (PLAN, ARCHITECTURE, TERMINOLOGY, MVP)
+   - TODO.md Phase 구성
+
+3. **프로젝트 초기화** (선택 시)
+   - 프레임워크 보일러플레이트 설정
+   - 임시 폴더 전략으로 충돌 방지
+   - 의존성 설치
+
+4. **첫 커밋 생성**
+
+**상세 가이드**: [GETTING_STARTED.md](./GETTING_STARTED.md)
 
 ### 3. 개발 시작
 
-```bash
-# 1. TODO.md에서 작업 선택
-# 2. 참조 문서 읽기
-# 3. Cursor AI에게 작업 요청
-#    예: "TODO.md의 Phase 1.1.1 작업을 시작해줘"
+초기화가 완료되면:
+
 ```
+"TODO.md의 Phase 1.1.1 작업을 시작해줘"
+```
+
+AI Agent가 TODO.md를 보고 작업을 진행합니다.
 
 ## 📁 디렉토리 구조
 
@@ -58,14 +72,16 @@ git init
 ├── AGENTS.md                    # 프로젝트 제어 타워 (전역 규칙)
 ├── TODO.md                      # 작업 추적 허브
 ├── README.md                    # 프로젝트 소개 (이 파일)
+├── GETTING_STARTED.md           # AI Agent 초기 대화 가이드 ⭐
+├── PROJECT_INIT_GUIDE.md        # 프레임워크 초기화 가이드 ⭐
 │
 ├── docs/                        # 프로젝트 문서
 │   ├── README.md                # 문서 목차
 │   ├── PLAN.md                  # 서비스 기획
 │   ├── MVP.md                   # MVP 범위
 │   ├── ARCHITECTURE.md          # 기술 스택
-│   ├── DATABASE_SCHEMA.md       # DB 설계
-│   ├── API_SPEC.md              # API 명세
+│   ├── DATABASE_SCHEMA.md       # DB 설계 (템플릿)
+│   ├── API_SPEC.md              # API 명세 (템플릿)
 │   ├── TERMINOLOGY.md           # 용어 사전
 │   └── ...                      # 기타 명세서
 │
@@ -75,7 +91,9 @@ git init
 │       ├── commit-convention.mdc # 커밋 컨벤션
 │       └── staging-guidelines.mdc # 스테이징 가이드
 │
+├── .env.example                 # 환경 변수 예시
 ├── .gitignore
+├── package.json                 # 기본 패키지 파일
 └── [your-project-files]         # 실제 프로젝트 파일들
 ```
 
@@ -183,6 +201,57 @@ AI Agent가 자동으로 브랜치 관리:
 ### User
 ...
 ```
+
+## ⭐ 패키지 매니저 일관성 (중요!)
+
+### 왜 중요한가요?
+
+프로젝트에서 **하나의 패키지 매니저만 일관되게 사용**하는 것은 매우 중요합니다:
+
+```
+✅ 일관된 의존성 버전 관리
+✅ Lock 파일 충돌 방지
+✅ 빌드 재현성 보장
+✅ 팀 협업 시 혼란 방지
+✅ AI Agent가 올바른 명령어 사용
+```
+
+### 설정 방법
+
+1. **초기화 시 선택**
+   - AI Agent가 처음에 "어떤 패키지 매니저를 사용하시나요?" 질문
+   - npm, pnpm, yarn, bun 중 선택
+
+2. **AGENTS.md에 명시**
+   ```markdown
+   ### Tech Stack
+   - **선택한 패키지 매니저**: pnpm ⭐
+   ```
+
+3. **프로젝트 전체에서 일관되게 사용**
+   ```bash
+   # ✅ 올바른 사용 (pnpm 선택 시)
+   pnpm install
+   pnpm dev
+   pnpm build
+   
+   # ❌ 잘못된 사용 (다른 패키지 매니저 혼용)
+   npm install  # 금지!
+   yarn dev     # 금지!
+   ```
+
+4. **다른 Lock 파일 제거**
+   ```bash
+   # pnpm 사용 시
+   rm package-lock.json yarn.lock  # npm, yarn lock 삭제
+   
+   # .gitignore에 추가
+   package-lock.json  # npm 사용 시 제외
+   yarn.lock          # yarn 사용 시 제외
+   pnpm-lock.yaml     # pnpm 사용 시 제외
+   ```
+
+---
 
 ## 🛠️ 커스터마이징
 
