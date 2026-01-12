@@ -3,6 +3,22 @@ node_modules/
 .pnp
 .pnp.js
 
+# Package Manager Lock Files
+# ⚠️ IMPORTANT: Uncomment the lock files you DON'T use to avoid conflicts
+# Only keep ONE package manager's lock file in the repository
+
+# Uncomment if NOT using npm:
+# package-lock.json
+
+# Uncomment if NOT using yarn:
+# yarn.lock
+
+# Uncomment if NOT using pnpm:
+# pnpm-lock.yaml
+
+# Uncomment if NOT using bun:
+# bun.lockb
+
 # Testing
 coverage/
 .nyc_output
@@ -46,6 +62,7 @@ Thumbs.db
 *.tmp
 tmp/
 temp/
+temp_init/  # Framework initialization temp folder
 
 # Database
 *.db

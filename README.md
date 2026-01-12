@@ -13,6 +13,47 @@
 
 ## 🚀 빠른 시작
 
+### 사용 방법 선택
+
+이 템플릿은 **2가지 방법**으로 사용할 수 있습니다:
+
+#### 📘 방법 1: 새 프로젝트 시작 (추천)
+
+GitHub에서 "Use this template" 버튼을 클릭하거나:
+
+```bash
+# 직접 클론하여 사용
+git clone https://github.com/YOUR_USERNAME/cursor-ai-agent-template.git your-project-name
+cd your-project-name
+rm -rf .git
+git init
+```
+
+→ **[방법 1 상세 가이드](#1-템플릿-가져오기-새-프로젝트)** 아래 참조
+
+---
+
+#### 🔧 방법 2: 기존 프로젝트에 적용
+
+이미 개발 중인 프로젝트에 이 구조를 추가할 수 있습니다!
+
+```bash
+# 기존 프로젝트에서 AI Agent에게 요청:
+"이 템플릿을 적용해줘: https://github.com/YOUR_USERNAME/cursor-ai-agent-template"
+```
+
+AI Agent가 자동으로:
+- ✅ 기존 프로젝트 분석 (기술 스택, 구조, 패키지 매니저)
+- ✅ 템플릿 파일 선택적으로 추가 (충돌 방지)
+- ✅ 기존 코드 100% 유지하면서 문서 구조만 추가
+- ✅ 프로젝트에 맞게 AGENTS.md, TODO.md 자동 생성
+
+→ **상세 가이드**: [APPLY_TO_EXISTING_PROJECT.md](./APPLY_TO_EXISTING_PROJECT.md)
+
+---
+
+## 📘 방법 1: 새 프로젝트 시작
+
 ### 1. 템플릿 가져오기
 
 GitHub에서 "Use this template" 버튼을 클릭하거나:
@@ -72,8 +113,10 @@ AI Agent가 TODO.md를 보고 작업을 진행합니다.
 ├── AGENTS.md                    # 프로젝트 제어 타워 (전역 규칙)
 ├── TODO.md                      # 작업 추적 허브
 ├── README.md                    # 프로젝트 소개 (이 파일)
-├── GETTING_STARTED.md           # AI Agent 초기 대화 가이드 ⭐
-├── PROJECT_INIT_GUIDE.md        # 프레임워크 초기화 가이드 ⭐
+│
+├── GETTING_STARTED.md           # AI Agent 초기 대화 가이드 (새 프로젝트)
+├── PROJECT_INIT_GUIDE.md        # 프레임워크 초기화 가이드 (새 프로젝트)
+├── APPLY_TO_EXISTING_PROJECT.md # 기존 프로젝트 적용 가이드 ⭐
 │
 ├── docs/                        # 프로젝트 문서
 │   ├── README.md                # 문서 목차
