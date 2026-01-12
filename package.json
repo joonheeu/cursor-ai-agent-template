@@ -1,0 +1,21 @@
+{
+  "name": "cursor-ai-agent-template",
+  "version": "1.0.0",
+  "description": "AI Agent driven development template for Cursor IDE",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Add your dev command here'",
+    "build": "echo 'Add your build command here'",
+    "start": "echo 'Add your start command here'",
+    "lint": "echo 'Add your lint command here'",
+    "test": "echo 'Add your test command here'"
+  },
+  "keywords": [
+    "cursor",
+    "ai-agent",
+    "template",
+    "development"
+  ],
+  "author": "",
+  "license": "MIT"
+}

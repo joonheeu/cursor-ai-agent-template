@@ -1,0 +1,311 @@
+# Cursor AI Agent Development Template
+
+> **AI Agent 주도 개발을 위한 프로젝트 템플릿**  
+> Cursor AI와 함께하는 체계적이고 효율적인 개발 환경
+
+## 📌 특징
+
+- 🤖 **AI Agent 친화적 구조**: AGENTS.md를 통한 계층적 규칙 관리
+- 📋 **작업 추적 시스템**: TODO.md 기반 Phase별 개발 관리
+- 📚 **문서 중심 개발**: 명세 → 코드 변환 워크플로우
+- 🔄 **Gitflow 자동화**: AI Agent가 브랜치/머지를 자동으로 관리
+- ✅ **품질 보증**: 커밋 컨벤션, 스테이징 가이드라인 내장
+
+## 🚀 빠른 시작
+
+### 1. 이 템플릿 사용하기
+
+GitHub에서 "Use this template" 버튼을 클릭하거나:
+
+```bash
+# 직접 클론하여 사용
+git clone https://github.com/YOUR_USERNAME/cursor-ai-agent-template.git your-project-name
+cd your-project-name
+rm -rf .git
+git init
+```
+
+### 2. 프로젝트 커스터마이징
+
+```bash
+# 1. AGENTS.md 수정
+# - 프로젝트명, 기술 스택, 용어 등을 프로젝트에 맞게 수정
+
+# 2. docs/ 폴더의 문서 작성
+# - PLAN.md: 서비스 기획 작성
+# - ARCHITECTURE.md: 기술 스택 정의
+# - DATABASE_SCHEMA.md: DB 설계 (필요시)
+# - 기타 필요한 명세서 작성
+
+# 3. TODO.md 작성
+# - Phase별 작업 목록 작성
+# - 참조 문서 연결
+```
+
+### 3. 개발 시작
+
+```bash
+# 1. TODO.md에서 작업 선택
+# 2. 참조 문서 읽기
+# 3. Cursor AI에게 작업 요청
+#    예: "TODO.md의 Phase 1.1.1 작업을 시작해줘"
+```
+
+## 📁 디렉토리 구조
+
+```
+.
+├── AGENTS.md                    # 프로젝트 제어 타워 (전역 규칙)
+├── TODO.md                      # 작업 추적 허브
+├── README.md                    # 프로젝트 소개 (이 파일)
+│
+├── docs/                        # 프로젝트 문서
+│   ├── README.md                # 문서 목차
+│   ├── PLAN.md                  # 서비스 기획
+│   ├── MVP.md                   # MVP 범위
+│   ├── ARCHITECTURE.md          # 기술 스택
+│   ├── DATABASE_SCHEMA.md       # DB 설계
+│   ├── API_SPEC.md              # API 명세
+│   ├── TERMINOLOGY.md           # 용어 사전
+│   └── ...                      # 기타 명세서
+│
+├── .cursor/                     # Cursor IDE 규칙
+│   └── rules/
+│       ├── gitflow.mdc          # Gitflow 워크플로우
+│       ├── commit-convention.mdc # 커밋 컨벤션
+│       └── staging-guidelines.mdc # 스테이징 가이드
+│
+├── .gitignore
+└── [your-project-files]         # 실제 프로젝트 파일들
+```
+
+## 🎯 핵심 개념
+
+### 1. AGENTS.md - 프로젝트 제어 타워
+
+모든 AI Agent는 작업 전 `AGENTS.md`를 참조합니다:
+
+- **계층적 구조**: 루트 AGENTS.md → 디렉토리별 AGENTS.md
+- **규칙 상속**: 하위 디렉토리는 상위 규칙을 상속받고 세부 규칙 추가
+- **컨텍스트 맵**: 작업별로 참조할 AGENTS.md 위치 안내
+
+### 2. TODO.md - 작업 추적 허브
+
+프로젝트의 모든 개발 작업을 체계적으로 관리:
+
+- **Phase별 구조**: 큰 작업을 Phase로 나누고, 각 Phase를 작은 작업으로 분해
+- **문서 연결**: 각 작업마다 참조할 docs/*.md 파일 명시
+- **진행률 추적**: 체크박스로 완료 여부 표시, Phase별 진행률 시각화
+- **작업 체크리스트**: 작업 시작 전 필수 확인사항 명시
+
+### 3. docs/ - 명세 중심 개발
+
+코드 작성 전 명세를 먼저 작성:
+
+```
+명세 작성 (docs/*.md) → 검토 및 승인 → 코드 구현 → 문서 업데이트
+```
+
+### 4. Git Workflow 자동화
+
+AI Agent가 자동으로 브랜치 관리:
+
+- **자동 브랜치 생성**: Phase 시작 시 `feature/{phase-number}-{phase-name}` 생성
+- **자동 머지**: Phase 100% 완료 시 develop으로 자동 머지
+- **커밋 컨벤션**: Conventional Commits 자동 적용
+
+## 📖 사용 가이드
+
+### AI Agent에게 작업 요청하기
+
+```
+# ✅ 좋은 예시
+"TODO.md의 Phase 1.1.1 작업을 시작해줘"
+"다음 작업 진행해줘"
+"Phase 2 완료 후 머지해줘"
+
+# ❌ 나쁜 예시
+"로그인 기능 만들어줘" (TODO.md 없이 요청)
+"DB 스키마 작성해줘" (문서 참조 없이 요청)
+```
+
+### AI Agent 작업 흐름
+
+1. **작업 선택**: TODO.md에서 다음 작업 확인
+2. **문서 읽기**: 참조 문서(docs/*.md) 읽고 명세 파악
+3. **규칙 확인**: 관련 AGENTS.md 읽고 규칙 준수
+4. **브리핑**: 작업 시작 전 간단히 설명
+5. **구현**: 코드 작성 및 테스트
+6. **커밋**: Conventional Commits 준수
+7. **TODO 업데이트**: 체크박스 체크, 진행률 업데이트
+8. **요약**: 작업 완료 후 주요 변경사항 요약
+9. **자동 머지**: Phase 완료 시 develop으로 머지
+
+### 문서 작성 가이드
+
+#### 1. PLAN.md (서비스 기획)
+```markdown
+# 프로젝트명
+
+## 비즈니스 목표
+- 해결하려는 문제
+- 타겟 사용자
+- 핵심 가치 제안
+
+## 핵심 기능
+1. 기능 1
+2. 기능 2
+...
+```
+
+#### 2. ARCHITECTURE.md (기술 스택)
+```markdown
+# 기술 아키텍처
+
+## Tech Stack
+- Frontend: ...
+- Backend: ...
+- Database: ...
+- AI/ML: ...
+
+## 디렉토리 구조
+...
+```
+
+#### 3. DATABASE_SCHEMA.md (DB 설계)
+```markdown
+# 데이터베이스 스키마
+
+## ERD
+(Mermaid 다이어그램)
+
+## 테이블 정의
+### User
+...
+```
+
+## 🛠️ 커스터마이징
+
+### AGENTS.md 수정하기
+
+1. **프로젝트 컨텍스트 수정**:
+   ```markdown
+   ### Business Goal
+   **[프로젝트명]** is [프로젝트 설명]
+   
+   ### Tech Stack (Monorepo)
+   - **Monorepo Tool**: [도구명]
+   - **Package Manager**: [패키지 매니저]
+   ...
+   ```
+
+2. **용어 정의**:
+   ```markdown
+   ### 3. [프로젝트명] Terminology
+   - **용어1**: 설명
+   - **용어2**: 설명
+   ```
+
+3. **Context Map 업데이트**:
+   프로젝트 구조에 맞게 AGENTS.md 경로 수정
+
+### TODO.md 커스터마이징
+
+1. **Phase 정의**:
+   ```markdown
+   ## 🚀 Phase 1: [Phase명] (Week 1-2)
+   
+   **목표**: [Phase 목표]
+   **예상 기간**: [기간]
+   **진행률**: 0/X (0%)
+   ```
+
+2. **작업 정의**:
+   ```markdown
+   #### [ ] 1.1.1 [작업명]
+   **설명**: [작업 설명]
+   
+   **참조 문서**:
+   - `docs/XXXX.md`
+   
+   **생성할 파일**:
+   - `path/to/file.ts`
+   
+   **완료 조건**:
+   - [ ] 조건 1
+   - [ ] 조건 2
+   ```
+
+## 🤝 베스트 프랙티스
+
+### DO ✅
+
+- ✅ 작업 시작 전 TODO.md와 참조 문서를 먼저 읽기
+- ✅ 모든 규칙을 AGENTS.md에 문서화
+- ✅ 작업 완료 시 TODO.md 체크박스 즉시 업데이트
+- ✅ Phase 단위로 브랜치 생성 및 머지
+- ✅ 커밋 메시지는 Conventional Commits 준수
+- ✅ 문서와 코드를 항상 동기화
+
+### DON'T ❌
+
+- ❌ 문서 없이 바로 코딩 시작
+- ❌ TODO.md 업데이트 없이 작업 진행
+- ❌ AGENTS.md와 다른 규칙으로 코드 작성
+- ❌ Phase 중간에 브랜치 머지
+- ❌ 임의의 커밋 메시지 사용
+
+## 📚 참고 자료
+
+### Cursor AI 규칙 파일
+
+템플릿에 포함된 규칙 파일들:
+
+- **gitflow.mdc**: Gitflow 워크플로우 전략
+- **commit-convention.mdc**: Conventional Commits 규칙
+- **staging-guidelines.mdc**: Git 스테이징 가이드라인
+
+### 추천 문서 구조
+
+프로젝트 복잡도에 따라 선택적으로 사용:
+
+**기본 (모든 프로젝트)**
+- ✅ PLAN.md - 서비스 기획
+- ✅ ARCHITECTURE.md - 기술 스택
+- ✅ TERMINOLOGY.md - 용어 사전
+
+**중급 (중규모 프로젝트)**
+- ✅ MVP.md - MVP 범위 정의
+- ✅ API_SPEC.md - API 명세
+- ✅ DATABASE_SCHEMA.md - DB 스키마
+
+**고급 (대규모/복잡한 프로젝트)**
+- ✅ WORKFLOW.md - 상세 워크플로우
+- ✅ USER_FLOW.md - 사용자 시나리오
+- ✅ 기타 도메인별 명세서
+
+## 🔧 트러블슈팅
+
+### AI Agent가 문서를 참조하지 않는 경우
+
+→ TODO.md에서 "참조 문서" 섹션을 명확히 명시했는지 확인
+
+### 브랜치 자동 머지가 동작하지 않는 경우
+
+→ TODO.md에서 Phase 진행률이 100%인지 확인
+
+### 커밋 컨벤션이 지켜지지 않는 경우
+
+→ .cursor/rules/commit-convention.mdc가 올바르게 로드되었는지 확인
+
+## 📄 라이선스
+
+MIT License - 자유롭게 사용, 수정, 배포 가능
+
+## 🙏 기여
+
+이슈와 PR은 언제나 환영합니다!
+
+---
+
+**Made with ❤️ for AI-powered development**
